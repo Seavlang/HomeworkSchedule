@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #1e293b;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --accent: #8b5cf6;
 }
 
 @theme inline {
@@ -14,13 +17,28 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0f172a;
+    --foreground: #f1f5f9;
   }
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f8fafc 100%);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+/* Drag and Drop Styles */
+[data-rbd-drag-handle-dragging-id] {
+  cursor: grabbing !important;
+}
+
+.drag-overlay {
+  z-index: 1000;
+}
+
+/* Smooth transitions for drag operations */
+[data-rbd-draggable-id] {
+  transition: transform 200ms ease;
 }

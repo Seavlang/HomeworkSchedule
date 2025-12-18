@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Homework {
+  id             String   @id @default(uuid())
+  subject        String
+  title          String
+  description    String   @default("")
+  assignedDate   DateTime
+  dueDate        DateTime
+  createdBy      String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([dueDate])
+  @@index([subject])
+  @@map("homeworks")
+}
