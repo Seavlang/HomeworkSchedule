@@ -125,7 +125,7 @@ export function HomeworkCalendar({
 
           {days.map((day) => {
             const dayHomeworks = getHomeworksForDate(day);
-            const isSelected = selectedDate && isSameDay(day, selectedDate);
+            const isSelected: boolean = selectedDate ? isSameDay(day, selectedDate) : false;
             const isToday = isSameDay(day, new Date());
 
             return (

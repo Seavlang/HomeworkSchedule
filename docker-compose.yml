@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   postgres:
     image: postgres:16-alpine
@@ -39,8 +37,7 @@ services:
       - homeworksched-network
     command: >
       sh -c "
-        npx prisma migrate deploy &&
-        npx prisma db seed &&
+        ./node_modules/.bin/prisma migrate deploy || npx prisma migrate deploy || true &&
         node server.js
       "
 

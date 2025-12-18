@@ -74,8 +74,11 @@ docker-compose logs -f postgres
 # Run Prisma migrations manually
 docker-compose exec app npx prisma migrate deploy
 
-# Run Prisma seed manually
-docker-compose exec app npx prisma db seed
+# Run Prisma seed manually (requires tsx - install it first or use node with tsx)
+docker-compose exec app sh -c "npm install -g tsx && npx prisma db seed"
+
+# Or seed manually by running the seed script
+docker-compose exec app node -r tsx/register prisma/seed.ts
 
 # Access database
 docker-compose exec postgres psql -U homeworkuser -d homeworksched
