@@ -46,17 +46,27 @@ DATABASE_URL="postgresql://username:password@localhost:5432/homeworksched?schema
 - `localhost:5432` - Your PostgreSQL host and port
 - `homeworksched` - Your database name
 
+**Alternative:** You can also update `prisma.config.ts` with your database URL if you prefer.
+
 ### Step 4: Set Up the Database
 
 1. **Create the database:**
+   
+   **Option A: Local PostgreSQL**
    ```bash
    # Using psql
    psql -U postgres
    CREATE DATABASE homeworksched;
    \q
    ```
-
-   Or use your preferred PostgreSQL client to create a database named `homeworksched`.
+   
+   **Option B: Cloud Database (Recommended for Development)**
+   - **Supabase**: Free PostgreSQL hosting - [supabase.com](https://supabase.com)
+   - **Neon**: Serverless PostgreSQL - [neon.tech](https://neon.tech)
+   - **Railway**: Easy PostgreSQL setup - [railway.app](https://railway.app)
+   - **Vercel Postgres**: Integrated with Vercel deployments
+   
+   Use your preferred PostgreSQL client to create a database named `homeworksched`.
 
 2. **Generate Prisma Client:**
    ```bash
@@ -182,6 +192,9 @@ npm run db:push -- --force-reset
 
 # Or with migrations
 npm run db:migrate -- --name reset
+
+# Or use Prisma migrate reset
+npx prisma migrate reset
 ```
 
 ### Module Not Found Errors

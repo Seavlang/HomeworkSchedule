@@ -72,8 +72,8 @@ npm run dev
 
 ## Documentation
 
-- **[SETUP_INSTRUCTIONS.md](./SETUP_INSTRUCTIONS.md)** - Complete setup guide for cloning and running the project
-- **[DOCKER.md](./DOCKER.md)** - Docker deployment guide
+- **[SETUP_INSTRUCTIONS.md](./SETUP_INSTRUCTIONS.md)** - Complete setup guide for cloning and running the project (includes both local and Docker setup)
+- **[DOCKER.md](./DOCKER.md)** - Detailed Docker deployment guide
 
 ## Subjects
 
