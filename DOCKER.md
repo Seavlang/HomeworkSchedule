@@ -148,3 +148,4 @@ docker run --rm -v homeworksched_postgres_data:/data -v $(pwd):/backup alpine ta
 # Restore backup
 docker run --rm -v homeworksched_postgres_data:/data -v $(pwd):/backup alpine sh -c "cd /data && tar xzf /backup/postgres-backup.tar.gz --strip 1"
 ```
+

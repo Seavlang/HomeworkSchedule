@@ -30,16 +30,14 @@ services:
     environment:
       - NODE_ENV=production
       - DATABASE_URL=postgresql://${POSTGRES_USER:-homeworkuser}:${POSTGRES_PASSWORD:-homeworkpass}@postgres:5432/${POSTGRES_DB:-homeworksched}?schema=public
+      - POSTGRES_USER=${POSTGRES_USER:-homeworkuser}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-homeworkpass}
+      - POSTGRES_DB=${POSTGRES_DB:-homeworksched}
     depends_on:
       postgres:
         condition: service_healthy
     networks:
       - homeworksched-network
-    command: >
-      sh -c "
-        ./node_modules/.bin/prisma migrate deploy || npx prisma migrate deploy || true &&
-        node server.js
-      "
 
 volumes:
   postgres_data:
@@ -48,3 +46,4 @@ volumes:
 networks:
   homeworksched-network:
     driver: bridge
+

@@ -60,3 +60,4 @@ When a homework is dropped on a new date:
 - Drag from list view to calendar
 - Touch gesture support for mobile devices
 
+
