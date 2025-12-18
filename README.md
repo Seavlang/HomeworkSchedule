@@ -27,49 +27,38 @@ A modern, responsive web application designed for teachers to coordinate and ass
 
 ## Getting Started
 
-### Prerequisites
+📖 **For detailed setup instructions, see [SETUP_INSTRUCTIONS.md](./SETUP_INSTRUCTIONS.md)**
 
-- Node.js 18+ 
-- PostgreSQL database
-- npm or yarn
+### Quick Start
 
-### Installation
-
-1. Clone the repository:
+**Option 1: Docker (Recommended)**
 ```bash
 git clone <repository-url>
 cd homeworksched
+# Create .env file (see SETUP_INSTRUCTIONS.md)
+docker-compose up -d --build
+# Open http://localhost:3000
 ```
 
-2. Install dependencies:
+**Option 2: Local Development**
 ```bash
+git clone <repository-url>
+cd homeworksched
 npm install
-```
-
-3. Set up environment variables:
-Create a `.env` file in the root directory:
-```env
-DATABASE_URL="postgresql://user:password@localhost:5432/homeworksched?schema=public"
-```
-
-4. Set up the database:
-```bash
-# Generate Prisma Client
+# Create .env file with DATABASE_URL
 npm run db:generate
-
-# Push schema to database (or use migrations)
 npm run db:push
-
-# Seed the database with sample data
 npm run db:seed
-```
-
-5. Run the development server:
-```bash
 npm run dev
+# Open http://localhost:3000
 ```
 
-6. Open [http://localhost:3000](http://localhost:3000) in your browser.
+### Prerequisites
+
+- Node.js 20+ (for local development)
+- PostgreSQL 14+ (for local development)
+- Docker & Docker Compose (for Docker setup)
+- npm or yarn
 
 ## Available Scripts
 
@@ -80,6 +69,11 @@ npm run dev
 - `npm run db:push` - Push schema changes to database
 - `npm run db:migrate` - Run database migrations
 - `npm run db:seed` - Seed database with sample data
+
+## Documentation
+
+- **[SETUP_INSTRUCTIONS.md](./SETUP_INSTRUCTIONS.md)** - Complete setup guide for cloning and running the project
+- **[DOCKER.md](./DOCKER.md)** - Docker deployment guide
 
 ## Subjects
 
